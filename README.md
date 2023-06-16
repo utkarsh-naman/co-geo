@@ -51,10 +51,12 @@ print(area_3d(...))
 
 ## area_2d
 ## area_3d
+## fop
+## intersect
+## iscollinear
+## iscollinear_3d
 ## perimeter_2d
 ## perimeter_3d
-## 
-## iscollinear_3d
 
 
 ---------------------------------------------------------
