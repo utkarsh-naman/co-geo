@@ -14,8 +14,9 @@ Python library to solve 2d/3d coordinate geometry
 pip install utnamtte
 
 ```
+# Documentation
 
-## ⭐Ways to import
+## ⭐ Ways to import
 
 Method 1
 
@@ -39,7 +40,7 @@ from utnamgeo import area_3d as xy
 print(xy(...))
 ```
 
-Method 4
+Method 4 (😍 my favourite)
 ```python
 from utnamgeo import *
 print(area_3d(...))
@@ -50,13 +51,55 @@ print(area_3d(...))
 # ⭐ Useful functions
 
 ## area_2d
+```python
+ #returns area of triangle with vertices (x1, y1) (x2, y2) and (x3, y3)
+ area = area_2d(x1, y1, x2, y2, x3, y3)
+```
 ## area_3d
+```python
+#returns area of triangle in 3d space with vertices (x1, y1, z1) (x2, y2, z2) and (x3, y3, z3)
+area = area_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+```
 ## fop
+```python
+# returns the x, y, z coordinates of the foot of perpendicular drawn from the point (x3, y3, z3) to the line joining (x1, y1, z1) and  (x2, y2, z2) 
+xn, xd, yn, yd, zn, zd = fop(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+#returns numerator and denominator of the coordinates
+```
+## gcd
+```python
+# returns the HCF(highest common factor) or GCD( Greatest common divisor) {both meaning the same} of two numbers
+hcf = gcd(a, b)
+```
 ## intersect
+```python
+# returns the x, y, z, x(as fraction), y(as fraction), z(as fraction) coordinates of the point of intersection of two lines, 
+# line 1: x-x1/(a1n/a1d) = y-y1/(b1n/b1d) = z-z1/(c1n/c1d)
+# line 2: x-x2/(a2n/a2d) = y-y/2(b2n/b2d) = z-z2/(c2n/c2d)
+xn, xd, yn, yd, zn, zd = intersect(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+```
 ## iscollinear
+```python
+# returns whether the three points in 2d space are collinear or not
+value = iscollinear(x1, y1, x2, y2, x3, y3)
+# returns True if collinear and False if not
+```
 ## iscollinear_3d
+```python
+# returns whether the three points in 3d space are collinear or not
+value = iscollinear_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+# returns True if collinear and False if not
+```
 ## perimeter_2d
+```python
+ #returns perimeter of triangle with vertices (x1, y1) (x2, y2) and (x3, y3)
+ peri = peri_2d(x1, y1, x2, y2, x3, y3)
+```
 ## perimeter_3d
+```python
+#yreturns perimeter of triangle in 3d space with vertices (x1, y1, z1) (x2, y2, z2) and (x3, y3, z3)
+peri = perimeter_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+```
 
 
 ---------------------------------------------------------
