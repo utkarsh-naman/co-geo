@@ -42,7 +42,7 @@ print(xy(...))
 ## Centroid_2d
 ```python
 # Centroid_2d(x1, y1, x2, y2, x3, y3)
-a = co-geo.Centroid_3d(0, 2,  3, 7, 6, 3)
+a = co-geo.Centroid_2d(0, 2,  3, 7, 6, 3)
 print("x coordinate:",a.x)
 print("y coordinate:",a.y)
 ```
@@ -66,65 +66,33 @@ Output: 3
         7
 ```
 
+## Orthocentre_2d
+```python
+# Orthocentre_2d(x1, y1, x2, y2, x3, y3)
+a = co-geo.Orthocentre_2d(2,5,2,8,14,5)
+print("x coordinate:",a.x)
+print("y coordinate:",a.y)
+```
+```python
+Output: 2
+        5  
+```
+## Orthocentre_3d
+```python
+# Orthocentre_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+a = co-geo.Orthocentre_3d(2, -5, -3, 2, 7, -3, 14, -5, 6)
+print("x coordinate:",a.x)
+print("y coordinate:",a.y)
+print("z coordinate:",a.z)
 
-
-## Square root
-
-```python
-print(tte("2√π11+3"))
 ```
 ```python
-Output: 2*(math.sqrt(math.pi))*11+3
-```
-```python
-# you can also use sqrt and √ under √ without brackets
-print(tte("2√√sqrtπ11+3"))
-```
-```python
-Output: 2*(math.sqrt(math.sqrt(math.sqrt(math.pi))))*11+3
-```
-
-## Mod or Absoulute
-```python
-print(tte("2|3-6|7+3"))
-```
-```python
-Output: 2*(abs(3-6))*7+3
-```
-
-## Log
-```python
-print(tte("4ln11e"))
-```
-```python
-Output: 4*(math.log(11))*math.e
-```
-```python
-# you can also use log and ln of ln without brackets
-print(tte("4lnlnlog1331π+3"))
-```
-```python
-Output: 4*(math.log(math.log(math.log(1331))))*math.pi+3
-```
-```python
-# use log to the desired base as follow
-print(tte(f"log({number}, {base})"))
-```
-
-## Antilog
-```python
-print(tte(f"antilog({base}, {power})"))
+Output: 2
+       -5
+       -3
+        
 ```
 
 
-
-Application of this library
-**MATEX** is an application to input text mathematical expression and convert into python readable mathematical expression and output the result.
-Also it can convert such mathematical expressions into **_Python_** and **_Java_** expressions.
-
-This application was built using **Python** and **kivymd 0.104.2**.
-
-🔗 Download the apk file from [here](https://drive.google.com/drive/folders/13NEsclz1rMhXaleFpfHcjPhmgV5ac7Gf)
-
-▶️  [App tutorial here](https://youtu.be/_vezBiyNTOA)
+▶️  [Package's YouTube tutorial here](https://www.youtube.com/playlist?list=PLZchMekN22UmCqi9sCEEoAYBPsNvQrvBU)
 
