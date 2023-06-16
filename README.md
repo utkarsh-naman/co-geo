@@ -1,45 +1,72 @@
 # co-geo
 Python library to solve 2d/3d coordinate geometry
 
+[![utnamtte](https://img.shields.io/badge/PyPi-0.0.1-3670A0?style=for-the-badge&logoColor=ffdd54)](https://pypi.org/project/co-geo/)
+
+
+**Installation**
+
+
+    pip install co-geo
+
+## Requirements
+```python
+pip install utnamtte
+
+```
+
+## Ways to import
+
+Method 1
+
+```python
+import co-geo
+print(co-geo.area_3d(...))
+```
+
+
+Method 2
+
+```python
+from co-geo import area
+print(area(...))
+```
 
 Method 3
 
 ```python
-from utnamtte import tte as xy
-print(xy("2+ln2"))
+from co-geo import area as xy
+print(xy(...))
 ```
 
-## Symbols
+## Centroid_2d
 ```python
-You can use π or pi (case insensitive) or math.pi
-You can use e (case insensitive) or math.e
-You can use { or ( and } or )
-You can use × or * and ÷ or /
-
-```
-## Auto-complete brackets
-```python
-#utnamtte auto-completes incomplete brackets
-a = tte("2*7/(3+1")
-print(a)
-print(eval(a))
-
+# Centroid_2d(x1, y1, x2, y2, x3, y3)
+a = co-geo.Centroid_3d(0, 2,  3, 7, 6, 3)
+print("x coordinate:",a.x)
+print("y coordinate:",a.y)
 ```
 ```python
-Output: 2*7/(3+1)
-        3.5
+Output: 3
+        4
 ```
 
-## Division
+## Centroid_3d
 ```python
-a = tte("7/3π")
-print(a)
-print(eval(a))
+# Centroid_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
+a = co-geo.Centroid_3d(0, 2, 11, 3, 7, 4, 6, 3, 6)
+print("x coordinate:",a.x)
+print("y coordinate:",a.y)
+print("z coordinate:",a.z)
+
 ```
 ```python
-Output: 7/(3)*math.pi
-        7.330...
+Output: 3
+        4
+        7
 ```
+
+
 
 ## Square root
 
