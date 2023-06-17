@@ -9,14 +9,14 @@ Python library to solve 2d/3d coordinate geometry
 
     pip install utnamgeo
 
-## ⭐ Requirements
+## Requirements
 ```python
 pip install utnamtte
 
 ```
 # Documentation
 
-## ⭐ Ways to import
+## Ways to import
 
 Method 1
 
@@ -40,7 +40,7 @@ from utnamgeo import area_3d as xy
 print(xy(...))
 ```
 
-Method 4 (😍 my favourite)
+Method 4 ( my favourite)
 ```python
 from utnamgeo import *
 print(area_3d(...))
@@ -48,7 +48,7 @@ print(area_3d(...))
 
 ---------------------------------------------------------
 
-# ⭐ Useful functions
+#  Useful functions
 
 ## area_2d
 ```python
@@ -104,7 +104,7 @@ peri = perimeter_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3)
 
 ---------------------------------------------------------
 
-# ⭐ Centres
+#  Centres
 
 ## Centroid_2d
 ```python
