@@ -1,6 +1,6 @@
 from utnamtte import tte
 import math
-import matplotlib.pyplot as plt
+
 
 def gcd(n, d):
     if d == 0:
@@ -44,8 +44,9 @@ def iscollinear_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3):
     z2 = eval(tte(z2))
     z3 = eval(tte(z3))
 
-    if x1 * (y2 * z3 - y3 * z2) - y1 * (x2 * z3 - x3 * z2) + z1 * (x2 * y3 - x3 * y2) == 0:
+    if (x1-x2)*(y2-y3) == (x2-x3)*(y1-y2) and (y1-y2)*(z2-z3) == (y2-y3)*(z1-z2) and (x1-x2)*(z2-z3) == (x2-x3)*(z1-z2):
         return True
+
     else:
         return False
 
@@ -260,22 +261,6 @@ class Centroid_2d:
         self.x = (self.x1 + self.x2 + self.x3) / 3
         self.y = (self.y1 + self.y2 + self.y3) / 3
 
-    def plot(self):
-        plt.rcParams["figure.figsize"] = [9.00, 9.00]
-        plt.rcParams["figure.autolayout"] = True
-        a = [self.x1, self.x2, self.x3, self.x1]
-        b = [self.y1, self.y2, self.y3, self.y1]
-        plt.xlabel("X axis")
-        plt.ylabel("Y axis")
-        plt.plot(a, b, marker='o', markersize=8, markeredgecolor="black", markerfacecolor="orange",
-                 label='Line joining vertices')
-        plt.plot(self.x, self.y, marker='o', markersize=8, markeredgecolor="green", markerfacecolor="green",
-                 label='Centroid')
-        plt.title("Centroid")
-        print(" ")
-        plt.legend()
-        plt.show()
-
 
 class Circumcentre_3d:
     def __init__(self, x1, y1, z1, x2, y2, z2, x3, y3, z3):
@@ -412,32 +397,32 @@ class Excentre_3d:
             self.radius_fraction = "∞"
 
         else:
-            self.x1 = (-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3) / self.p1
-            self.x1_fraction = f"{(-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3)}/{self.p1}"
+            self.xa = (-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3) / self.p1
+            self.xa_fraction = f"{(-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3)}/{self.p1}"
 
-            self.x2 = (self.a * self.x1 - self.b * self.x2 + self.c * self.x3) / self.p2
-            self.x2_fraction = f"{(self.a * self.x1 - self.b * self.x2 + self.c * self.x3)}/{self.p2}"
+            self.xb = (self.a * self.x1 - self.b * self.x2 + self.c * self.x3) / self.p2
+            self.xb_fraction = f"{(self.a * self.x1 - self.b * self.x2 + self.c * self.x3)}/{self.p2}"
 
-            self.x3 = (self.a * self.x1 + self.b * self.x2 - self.c * self.x3) / self.p3
-            self.x3_fraction = f"{(self.a * self.x1 + self.b * self.x2 - self.c * self.x3)}/{self.p3}"
+            self.xc = (self.a * self.x1 + self.b * self.x2 - self.c * self.x3) / self.p3
+            self.xc_fraction = f"{(self.a * self.x1 + self.b * self.x2 - self.c * self.x3)}/{self.p3}"
 
-            self.y1 = (-1*self.a * self.y1 + self.b * self.y2 + self.c * self.y3) / self.p1
-            self.y1_fraction = f"{(-1*self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
+            self.ya = (-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3) / self.p1
+            self.ya_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
 
-            self.y2 = (self.a * self.y1 - self.b * self.y2 + self.c * self.y3) / self.p2
-            self.y2_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
+            self.yb = (self.a * self.y1 - self.b * self.y2 + self.c * self.y3) / self.p2
+            self.yb_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
 
-            self.y3 = (self.a * self.y1 + self.b * self.y2 - self.c * self.y3) / self.p3
-            self.y3_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
+            self.yc = (self.a * self.y1 + self.b * self.y2 - self.c * self.y3) / self.p3
+            self.yc_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
 
-            self.z1 = (-1*self.a * self.z1 + self.b * self.z2 + self.c * self.z3) / self.p1
-            self.z1_fraction = f"{(-1*self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
+            self.za = (-1 * self.a * self.z1 + self.b * self.z2 + self.c * self.z3) / self.p1
+            self.za_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
 
-            self.z2 = (self.a * self.z1 - self.b * self.z2 + self.c * self.z3) / self.p2
-            self.z2_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
+            self.zb = (self.a * self.z1 - self.b * self.z2 + self.c * self.z3) / self.p2
+            self.zb_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
 
-            self.z3 = (self.a * self.z1 + self.b * self.z2 - self.c * self.z3) / self.p3
-            self.z3_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
+            self.zc = (self.a * self.z1 + self.b * self.z2 - self.c * self.z3) / self.p3
+            self.zc_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
 
             self.ar = area_3d(self.x1, self.y1, self.z1, self.x2, self.y2, self.z2, self.x3, self.y3, self.z3)
             self.radius1 = self.ar / (self.semiperi - self.a)
@@ -487,32 +472,32 @@ class Excentre_2d:
             self.radius_fraction = "∞"
 
         else:
-            self.x1 = (-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3) / self.p1
-            self.x1_fraction = f"{(-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3)}/{self.p1}"
+            self.xa = (-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3) / self.p1
+            self.xa_fraction = f"{(-1 * self.a * self.x1 + self.b * self.x2 + self.c * self.x3)}/{self.p1}"
 
-            self.x2 = (self.a * self.x1 - self.b * self.x2 + self.c * self.x3) / self.p2
-            self.x2_fraction = f"{(self.a * self.x1 - self.b * self.x2 + self.c * self.x3)}/{self.p2}"
+            self.xa = (self.a * self.x1 - self.b * self.x2 + self.c * self.x3) / self.p2
+            self.xa_fraction = f"{(self.a * self.x1 - self.b * self.x2 + self.c * self.x3)}/{self.p2}"
 
-            self.x3 = (self.a * self.x1 + self.b * self.x2 - self.c * self.x3) / self.p3
-            self.x3_fraction = f"{(self.a * self.x1 + self.b * self.x2 - self.c * self.x3)}/{self.p3}"
+            self.xb = (self.a * self.x1 + self.b * self.x2 - self.c * self.x3) / self.p3
+            self.xb_fraction = f"{(self.a * self.x1 + self.b * self.x2 - self.c * self.x3)}/{self.p3}"
 
-            self.y1 = (-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3) / self.p1
-            self.y1_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
+            self.ya = (-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3) / self.p1
+            self.ya_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
 
-            self.y2 = (self.a * self.y1 - self.b * self.y2 + self.c * self.y3) / self.p2
-            self.y2_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
+            self.yb = (self.a * self.y1 - self.b * self.y2 + self.c * self.y3) / self.p2
+            self.yb_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
 
-            self.y3 = (self.a * self.y1 + self.b * self.y2 - self.c * self.y3) / self.p3
-            self.y3_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
+            self.yc = (self.a * self.y1 + self.b * self.y2 - self.c * self.y3) / self.p3
+            self.yc_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
 
-            self.z1 = (-1 * self.a * self.z1 + self.b * self.z2 + self.c * self.z3) / self.p1
-            self.z1_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
+            self.za = (-1 * self.a * self.z1 + self.b * self.z2 + self.c * self.z3) / self.p1
+            self.za_fraction = f"{(-1 * self.a * self.y1 + self.b * self.y2 + self.c * self.y3)}/{self.p1}"
 
-            self.z2 = (self.a * self.z1 - self.b * self.z2 + self.c * self.z3) / self.p2
-            self.z2_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
+            self.zb = (self.a * self.z1 - self.b * self.z2 + self.c * self.z3) / self.p2
+            self.zb_fraction = f"{(self.a * self.y1 - self.b * self.y2 + self.c * self.y3)}/{self.p2}"
 
-            self.z3 = (self.a * self.z1 + self.b * self.z2 - self.c * self.z3) / self.p3
-            self.z3_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
+            self.zc = (self.a * self.z1 + self.b * self.z2 - self.c * self.z3) / self.p3
+            self.zc_fraction = f"{(self.a * self.y1 + self.b * self.y2 - self.c * self.y3)}/{self.p3}"
 
             self.ar = area_3d(self.x1, self.y1, self.z1, self.x2, self.y2, self.z2, self.x3, self.y3, self.z3)
             self.radius1 = self.ar / (self.semiperi - self.a)
@@ -645,24 +630,24 @@ class Orthocentre_3d:
         self.c2d = self.z5d
         # print("DR of another", self.a2n/self.a2d, self.b2n/self.b2d, self.c2n/self.c2d)
         self.x, self.y, self.z, self.x_fraction, self.y_fraction, self.z_fraction = intersect(str(self.x3),
-                                                                                               str(self.y3),
-                                                                                               str(self.z3),
-                                                                                               str(self.x1),
-                                                                                               str(self.y1),
-                                                                                               str(self.z1),
-                                                                                               str(self.a1n),
-                                                                                               str(self.a1d),
-                                                                                               str(self.b1n),
-                                                                                               str(self.b1d),
-                                                                                               str(self.c1n),
-                                                                                               str(self.c1d),
-                                                                                               str(self.a2n),
-                                                                                               str(self.a2d),
-                                                                                               str(self.b2n),
-                                                                                               str(self.b2d),
-                                                                                               str(self.c2n),
-                                                                                               str(self.c2d)
-                                                                                               )
+                                                                                              str(self.y3),
+                                                                                              str(self.z3),
+                                                                                              str(self.x1),
+                                                                                              str(self.y1),
+                                                                                              str(self.z1),
+                                                                                              str(self.a1n),
+                                                                                              str(self.a1d),
+                                                                                              str(self.b1n),
+                                                                                              str(self.b1d),
+                                                                                              str(self.c1n),
+                                                                                              str(self.c1d),
+                                                                                              str(self.a2n),
+                                                                                              str(self.a2d),
+                                                                                              str(self.b2n),
+                                                                                              str(self.b2d),
+                                                                                              str(self.c2n),
+                                                                                              str(self.c2d)
+                                                                                              )
 
 
 class Orthocentre_2d:
@@ -698,91 +683,20 @@ class Orthocentre_2d:
         self.c2d = self.z5d
         # print("DR of another", self.a2n/self.a2d, self.b2n/self.b2d, self.c2n/self.c2d)
         self.x, self.y, self.z, self.x_fraction, self.y_fraction, self.z_fraction = intersect(str(self.x3),
-                                                                                               str(self.y3),
-                                                                                               str(self.z3),
-                                                                                               str(self.x1),
-                                                                                               str(self.y1),
-                                                                                               str(self.z1),
-                                                                                               str(self.a1n),
-                                                                                               str(self.a1d),
-                                                                                               str(self.b1n),
-                                                                                               str(self.b1d),
-                                                                                               str(self.c1n),
-                                                                                               str(self.c1d),
-                                                                                               str(self.a2n),
-                                                                                               str(self.a2d),
-                                                                                               str(self.b2n),
-                                                                                               str(self.b2d),
-                                                                                               str(self.c2n),
-                                                                                               str(self.c2d))
-
-
-while 1 > 0:
-    xa = input("X1 :   ")
-    ya = input("Y1 :   ")
-    za = input("Z1 :   ")
-
-    xb = input("X2 :   ")
-    yb = input("Y2:   ")
-    zb = input("Z2 :   ")
-
-    xc = input("X3 :   ")
-    yc = input("Y3 :   ")
-    zc = input("Z3 :   ")
-
-    if xa == "":
-        xa = "0"
-    if ya == "":
-        ya = "0"
-    if za == "":
-        za = "0"
-
-    if xb == "":
-        xb = "0"
-    if yb == "":
-        yb = "0"
-    if zb == "":
-        zb = "0"
-
-    if xc == "":
-        xc = "0"
-    if yc == "":
-        yc = "0"
-    if zc == "":
-        zc = "0"
-
-    # print(m)
-    # print(n)
-    # print(o)
-    # print(a1)
-    # print(b1)
-    # print(c1)
-    # print(a2)
-    # print(b2)
-    # print(c2)
-    # print(l)
-    # print(x)
-    # print(y)
-    # print(z)
-
-    # x, y, z = intersect("3","2","-4", "5","-2","0", "1","2","2", "3","2","6")
-    # print(x)
-    # print(y)
-    # print(z)
-    # abc = Incentre_2d(xa, ya, xb, yb, xc, yc)
-    abc = Orthocentre_3d(xa, ya, za, xb, yb, zb, xc, yc, zc)
-    # abc = Orthocentre_2d(xa, ya,  xb, yb, xc, yc)
-    # print(abc.x_fraction)
-    print(abc.x)
-    # print(abc.y_fraction)
-    print(abc.y)
-    # print(abc.z_fraction)
-    print(abc.z)
-    # print(abc.radius)
-    # print(abc.radius_fraction)
-
-    # print(area_3d(xa, ya, za, xb, yb, zb, xc, yc, zc))
-
-    # print(abc.x_fraction)
-
-    # print(abc.y_fraction)
+                                                                                              str(self.y3),
+                                                                                              str(self.z3),
+                                                                                              str(self.x1),
+                                                                                              str(self.y1),
+                                                                                              str(self.z1),
+                                                                                              str(self.a1n),
+                                                                                              str(self.a1d),
+                                                                                              str(self.b1n),
+                                                                                              str(self.b1d),
+                                                                                              str(self.c1n),
+                                                                                              str(self.c1d),
+                                                                                              str(self.a2n),
+                                                                                              str(self.a2d),
+                                                                                              str(self.b2n),
+                                                                                              str(self.b2d),
+                                                                                              str(self.c2n),
+                                                                                              str(self.c2d))
