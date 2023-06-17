@@ -1,7 +1,7 @@
 # utnamgeo
 Python library to solve 2d/3d coordinate geometry
 
-[![utnamtte](https://img.shields.io/badge/PyPi-0.0.2-3670A0?style=for-the-badge&logoColor=ffdd54)](https://pypi.org/project/utnamgeo/)
+[![utnamtte](https://img.shields.io/badge/PyPi-0.0.3-3670A0?style=for-the-badge&logoColor=ffdd54)](https://pypi.org/project/utnamgeo/)
 
 
 **Installation**
