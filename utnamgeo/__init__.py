@@ -58,8 +58,8 @@ def iscollinear(x1, x2, x3, y1, y2, y3):
     y1 = eval(tte(y1))
     y2 = eval(tte(y2))
     y3 = eval(tte(y3))
-    if (y1 - y2) * (x2 - x3) == (x1 - x2) * (y2 - y3) or (y2 - y3) * (x3 - x1) == (x2 - x3) * (y3 - y1) or (y1 - y2) * (
-            x3 - x1) == (x1 - x2) * (y3 - y1):
+    z1, z2, z3 = 0, 0, 0
+    if iscollinear_3d(x1, y1, z1, x2, y2, z2, x3, y3, z3) == True:
         return True
     else:
         return False
@@ -276,7 +276,7 @@ class Circumcentre_3d:
         self.z2 = eval(tte(z2))
         self.z3 = eval(tte(z3))
 
-        if self.x1 == self.x2 == self.x3 or self.y1 == self.y2 == self.y3 or self.z1 == self.z2 == self.z3:
+        if self.x1 == self.x2 == self.x3 and self.y1 == self.y2 == self.y3 and self.z1 == self.z2 == self.z3:
             self.x = "∞"
             self.y = "∞"
             self.z = "∞"
@@ -700,3 +700,5 @@ class Orthocentre_2d:
                                                                                               str(self.b2d),
                                                                                               str(self.c2n),
                                                                                               str(self.c2d))
+
+
